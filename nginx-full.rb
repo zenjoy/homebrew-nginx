@@ -206,7 +206,7 @@ class NginxFull < Formula
 
     # add third party flags
     args += THIRD_PARTY.select { | name, desc |
-      build.with? "#{name}-module"
+      build.include? "with-#{name}-module"
     }.collect { | name, desc |
       "--add-module=#{HOMEBREW_PREFIX}/share/#{name}-nginx-module"
     }
